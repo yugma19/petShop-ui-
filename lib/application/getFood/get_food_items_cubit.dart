@@ -23,7 +23,10 @@ class GetFoodItemsCubit extends Cubit<GetFoodItemsState> {
         ));
       } else {
         emit(state.copyWith(
-            isLoading: false, isSuccess: true, error: 'No Details found'));
+            isLoading: false,
+            isSuccess: true,
+            isFailure: false,
+            error: 'No Details found'));
       }
     } catch (e) {
       emit(state.copyWith(
