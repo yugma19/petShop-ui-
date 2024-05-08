@@ -47,7 +47,7 @@ android {
         applicationId "com.pet_shop_ui.pet_shop_ui"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -61,6 +61,19 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    flavorDimensions "default"
+    productFlavors {
+        dev {
+            resValue "string", "app_name", "PetShop-D"
+            dimension "default"
+            applicationIdSuffix ".dev"
+        }
+        production {
+            resValue "string", "app_name", "PetShop"
+            dimension "default"
+        }
+    }
+
 }
 
 flutter {
@@ -68,6 +81,6 @@ flutter {
 }
 
 dependencies {
-    implementation platform('com.google.firebase:firebase-bom:32.7.4')
+    implementation platform('com.google.firebase:firebase-bom:33.0.0')
     implementation 'com.google.firebase:firebase-analytics'
 }

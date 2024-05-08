@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../configs/app_config.dart';
+
 class NavigationService {
   final GlobalKey<NavigatorState> navigatorKey;
 
-  NavigationService(this.navigatorKey);
+  final AppStateNotifier appStateNotifier;
+  NavigationService(this.navigatorKey, this.appStateNotifier);
 
   Future<dynamic> navigateTo(String routeName,
       {Map<String, String> queryParams = const {},
@@ -14,6 +17,7 @@ class NavigationService {
 
     newRouteName =
         Uri(path: newRouteName, queryParameters: queryParams).toString();
+    // print(navigatorKey.currentState.toString());
 
     if (isClearStack) {
       return navigatorKey.currentState!.pushNamedAndRemoveUntil(

@@ -26,11 +26,13 @@ void main() async {
     appId: firebaseConfig.appId,
   ));
   final appConfig = AppConfig(
-    appTitle: 'Pet-shop',
+    appTitle: 'Pet-shop-D',
     serverUrl:
         'https://6d38-2405-201-200b-4270-d515-766a-c086-2030.ngrok-free.app/V3/mainRoute/',
-    buildFlavor: 'production',
+    buildFlavor: 'dev',
     child: Container(),
   );
+
   appInitializer(appConfig);
+
 }

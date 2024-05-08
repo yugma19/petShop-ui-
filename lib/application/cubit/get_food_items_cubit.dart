@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pet_shop_ui/domain/core/configs/app_config.dart';
 import 'package:pet_shop_ui/domain/food_repository/food_repository.dart';

@@ -7,26 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:356302856127:android:8b39ddbd3f1eb5603a4b0a",
-        "android_client_info": {
-          "package_name": "com.example.pet_shop"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBvU5f1oe9r53MLhjOtM78Rma2_Tg8p--g"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:356302856127:android:579bc0d6c69598123a4b0a",
+        "mobilesdk_app_id": "1:356302856127:android:9f8edb67ecbf22b53a4b0a",
         "android_client_info": {
           "package_name": "com.pet_shop_ui.pet_shop_ui"
         }

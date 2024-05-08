@@ -28,7 +28,7 @@ class IFoodRepository extends FoodRepository {
         throw Exception('unable to fetch');
       }
     } catch (e) {
-      print(e);
+      // print(e);
       throw Exception('Error: $e');
     }
   }
