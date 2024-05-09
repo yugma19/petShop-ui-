@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pet_shop_ui/application/cubit/get_food_items_cubit.dart';
 import 'package:pet_shop_ui/domain/core/configs/app_config.dart';
 import 'package:pet_shop_ui/presentation/util/dialogBox.dart';
-import 'package:pet_shop_ui/util/todo_tile.dart';
+import 'package:pet_shop_ui/presentation/util/todo_tile.dart';
 import 'package:provider/provider.dart';
 
 // class HomePage extends StatelessWidget {
