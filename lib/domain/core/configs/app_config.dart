@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
+
 class AppStateNotifier extends ChangeNotifier {
   bool isAuthorized;
+  bool isOffline;
+
 
   AppStateNotifier({
     required this.isAuthorized,
+    this.isOffline = false,
+
   });
 
   Future<void> updateAfterAuthChange({
@@ -14,28 +19,23 @@ class AppStateNotifier extends ChangeNotifier {
 
     notifyListeners();
   }
-
-  Future<void> notifyState() async {
-    notifyListeners();
-  }
 }
 
 class AppConfig extends InheritedWidget {
   final String appTitle;
   final String buildFlavor;
-  final String appUrl;
-
+  final String serverUrl;
   @override
   // ignore: overridden_fields
   final Widget child;
 
   const AppConfig({
-    Key? key,
-    required this.appUrl,
+    super.key,
     required this.appTitle,
     required this.buildFlavor,
     required this.child,
-  }) : super(key: key, child: child);
+    required this.serverUrl,
+  }) : super(child: child);
 
   static AppConfig? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<AppConfig>();

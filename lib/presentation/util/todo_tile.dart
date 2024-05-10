@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 // ignore: must_be_immutable
 class ToDoTile extends StatelessWidget {
   final String foodName;
+  // final String foodId;
 
   VoidCallback deleteFunction;
   VoidCallback editFunction;
@@ -11,6 +13,7 @@ class ToDoTile extends StatelessWidget {
   ToDoTile({
     super.key,
     required this.foodName,
+    // required this.foodId,
     required this.deleteFunction,
     required this.editFunction,
   });
@@ -43,7 +46,7 @@ class ToDoTile extends StatelessWidget {
                         color: Colors.yellow,
                       )),
                   IconButton(
-                      onPressed: editFunction,
+                      onPressed: deleteFunction,
                       icon: const Icon(
                         Icons.delete,
                         color: Colors.red,
