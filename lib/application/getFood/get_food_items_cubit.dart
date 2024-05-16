@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pet_shop_ui/domain/core/configs/app_config.dart';
@@ -51,10 +52,8 @@ class GetFoodItemsCubit extends Cubit<GetFoodItemsState> {
           isLoading: false,
           isSuccess: true,
           message: 'Product deleted successfully',
-        ));
-        // Optionally, you can refresh the product list after deletion
-        // Or you can let the UI handle the update
-        // init();
+        ));        
+        init();
       },
     );
   } catch (e) {
@@ -62,6 +61,60 @@ class GetFoodItemsCubit extends Cubit<GetFoodItemsState> {
       isLoading: false,
       isFailure: true,
       error: 'Failed to delete product: $e',
+    ));
+  }
+}
+
+void updateFood() async {
+  // Retrieve values from text controllers
+  final foodName = state.foodName.text.trim();
+  final productType = state.productType.text.trim();
+  final packageType = state.packageType.text.trim();
+  final price = state.price.text.trim();
+  // Extract foodId from the state
+  final foodId = state.foodId;
+
+  // Emit loading state
+  emit(state.copyWith(isLoading: true));
+
+  try {
+    // Call the repository method to update food
+    final result = await state.foodRepository.updateFood(
+      foodId: foodId,
+      foodName: foodName,
+      productType: productType,
+      packageType: packageType,
+      price: price,
+    );
+    // Handle result
+    result.fold(
+      (error) {
+        // Emit failure state with error message
+        emit(state.copyWith(
+          isLoading: false,
+          isFailure: true,
+          error: 'Failed to update product: $error',
+        ));
+      },
+      (success) {
+        // Emit success state with message
+        emit(state.copyWith(
+          isLoading: false,
+          isSuccess: true,
+          message: 'Product updated successfully',
+        ));
+
+        // Optionally, perform additional actions after successful update
+        // For example, you can refresh the product list
+        init();
+      },
+    );
+  } catch (e) {
+    // Emit failure state if an exception occurs
+    emit(state.copyWith(
+      isLoading: false,
+      isFailure: true,
+      error: 'Failed to update product: $e',
     ));
   }
 }

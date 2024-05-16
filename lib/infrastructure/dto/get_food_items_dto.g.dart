@@ -13,7 +13,7 @@ _$GetFoodItemsDtoImpl _$$GetFoodItemsDtoImplFromJson(
       foodName: json['foodName'] as String,
       productType: json['productType'] as String,
       packageType: json['packageType'] as String,
-      price: json['price'] as String?,
+      price: json['price'] as String,
     );
 
 Map<String, dynamic> _$$GetFoodItemsDtoImplToJson(

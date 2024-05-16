@@ -10,5 +10,11 @@ abstract class FoodRepository {
     required String price,
   });
   Future<Either<String, bool>> deleteFood({required String foodId});
-
+  Future<Either<String, bool>> updateFood({
+    required String foodId,
+    required String foodName,
+    required String productType,
+    required String packageType,
+    required String price,
+  });
 }

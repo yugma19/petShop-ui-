@@ -28,7 +28,7 @@ void main() async {
   final appConfig = AppConfig(
     appTitle: 'Pet-shop-D',
     serverUrl:
-        'https://4151-2405-201-200b-4270-cc8c-9596-9d40-fa4d.ngrok-free.app///V3/mainRoute/',
+        'https://56b0-2405-201-200b-4270-8c0d-6b7a-1ed4-c3e9.ngrok-free.app/V3/mainRoute/',
     buildFlavor: 'dev',
     child: Container(),
   );

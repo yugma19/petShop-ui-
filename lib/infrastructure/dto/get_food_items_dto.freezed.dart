@@ -29,7 +29,7 @@ mixin _$GetFoodItemsDto {
   @JsonKey(name: 'packageType')
   String get packageType => throw _privateConstructorUsedError;
   @JsonKey(name: 'price')
-  String? get price => throw _privateConstructorUsedError;
+  String get price => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $GetFoodItemsDtoCopyWith<$Res> {
       @JsonKey(name: 'foodName') String foodName,
       @JsonKey(name: 'productType') String productType,
       @JsonKey(name: 'packageType') String packageType,
-      @JsonKey(name: 'price') String? price});
+      @JsonKey(name: 'price') String price});
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ class _$GetFoodItemsDtoCopyWithImpl<$Res, $Val extends GetFoodItemsDto>
     Object? foodName = null,
     Object? productType = null,
     Object? packageType = null,
-    Object? price = freezed,
+    Object? price = null,
   }) {
     return _then(_value.copyWith(
       foodId: null == foodId
@@ -87,10 +87,10 @@ class _$GetFoodItemsDtoCopyWithImpl<$Res, $Val extends GetFoodItemsDto>
           ? _value.packageType
           : packageType // ignore: cast_nullable_to_non_nullable
               as String,
-      price: freezed == price
+      price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -108,7 +108,7 @@ abstract class _$$GetFoodItemsDtoImplCopyWith<$Res>
       @JsonKey(name: 'foodName') String foodName,
       @JsonKey(name: 'productType') String productType,
       @JsonKey(name: 'packageType') String packageType,
-      @JsonKey(name: 'price') String? price});
+      @JsonKey(name: 'price') String price});
 }
 
 /// @nodoc
@@ -126,7 +126,7 @@ class __$$GetFoodItemsDtoImplCopyWithImpl<$Res>
     Object? foodName = null,
     Object? productType = null,
     Object? packageType = null,
-    Object? price = freezed,
+    Object? price = null,
   }) {
     return _then(_$GetFoodItemsDtoImpl(
       foodId: null == foodId
@@ -145,10 +145,10 @@ class __$$GetFoodItemsDtoImplCopyWithImpl<$Res>
           ? _value.packageType
           : packageType // ignore: cast_nullable_to_non_nullable
               as String,
-      price: freezed == price
+      price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -161,7 +161,7 @@ class _$GetFoodItemsDtoImpl implements _GetFoodItemsDto {
       @JsonKey(name: 'foodName') required this.foodName,
       @JsonKey(name: 'productType') required this.productType,
       @JsonKey(name: 'packageType') required this.packageType,
-      @JsonKey(name: 'price') this.price});
+      @JsonKey(name: 'price') required this.price});
 
   factory _$GetFoodItemsDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetFoodItemsDtoImplFromJson(json);
@@ -180,7 +180,7 @@ class _$GetFoodItemsDtoImpl implements _GetFoodItemsDto {
   final String packageType;
   @override
   @JsonKey(name: 'price')
-  final String? price;
+  final String price;
 
   @override
   String toString() {
@@ -224,11 +224,12 @@ class _$GetFoodItemsDtoImpl implements _GetFoodItemsDto {
 
 abstract class _GetFoodItemsDto implements GetFoodItemsDto {
   const factory _GetFoodItemsDto(
-      {@JsonKey(name: 'foodId') required final String foodId,
-      @JsonKey(name: 'foodName') required final String foodName,
-      @JsonKey(name: 'productType') required final String productType,
-      @JsonKey(name: 'packageType') required final String packageType,
-      @JsonKey(name: 'price') final String? price}) = _$GetFoodItemsDtoImpl;
+          {@JsonKey(name: 'foodId') required final String foodId,
+          @JsonKey(name: 'foodName') required final String foodName,
+          @JsonKey(name: 'productType') required final String productType,
+          @JsonKey(name: 'packageType') required final String packageType,
+          @JsonKey(name: 'price') required final String price}) =
+      _$GetFoodItemsDtoImpl;
 
   factory _GetFoodItemsDto.fromJson(Map<String, dynamic> json) =
       _$GetFoodItemsDtoImpl.fromJson;
@@ -247,7 +248,7 @@ abstract class _GetFoodItemsDto implements GetFoodItemsDto {
   String get packageType;
   @override
   @JsonKey(name: 'price')
-  String? get price;
+  String get price;
   @override
   @JsonKey(ignore: true)
   _$$GetFoodItemsDtoImplCopyWith<_$GetFoodItemsDtoImpl> get copyWith =>

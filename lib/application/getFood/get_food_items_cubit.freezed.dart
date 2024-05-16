@@ -23,6 +23,10 @@ mixin _$GetFoodItemsState {
   String get message => throw _privateConstructorUsedError;
   String get deleteProducts => throw _privateConstructorUsedError;
   String get foodId => throw _privateConstructorUsedError;
+  TextEditingController get foodName => throw _privateConstructorUsedError;
+  TextEditingController get productType => throw _privateConstructorUsedError;
+  TextEditingController get packageType => throw _privateConstructorUsedError;
+  TextEditingController get price => throw _privateConstructorUsedError;
   FoodRepository get foodRepository => throw _privateConstructorUsedError;
   List<GetFoodItemsDto> get food => throw _privateConstructorUsedError;
   AppStateNotifier get appStateNotifier => throw _privateConstructorUsedError;
@@ -46,6 +50,10 @@ abstract class $GetFoodItemsStateCopyWith<$Res> {
       String message,
       String deleteProducts,
       String foodId,
+      TextEditingController foodName,
+      TextEditingController productType,
+      TextEditingController packageType,
+      TextEditingController price,
       FoodRepository foodRepository,
       List<GetFoodItemsDto> food,
       AppStateNotifier appStateNotifier});
@@ -71,6 +79,10 @@ class _$GetFoodItemsStateCopyWithImpl<$Res, $Val extends GetFoodItemsState>
     Object? message = null,
     Object? deleteProducts = null,
     Object? foodId = null,
+    Object? foodName = null,
+    Object? productType = null,
+    Object? packageType = null,
+    Object? price = null,
     Object? foodRepository = null,
     Object? food = null,
     Object? appStateNotifier = null,
@@ -104,6 +116,22 @@ class _$GetFoodItemsStateCopyWithImpl<$Res, $Val extends GetFoodItemsState>
           ? _value.foodId
           : foodId // ignore: cast_nullable_to_non_nullable
               as String,
+      foodName: null == foodName
+          ? _value.foodName
+          : foodName // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      productType: null == productType
+          ? _value.productType
+          : productType // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      packageType: null == packageType
+          ? _value.packageType
+          : packageType // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       foodRepository: null == foodRepository
           ? _value.foodRepository
           : foodRepository // ignore: cast_nullable_to_non_nullable
@@ -136,6 +164,10 @@ abstract class _$$GetFoodItemsStateImplCopyWith<$Res>
       String message,
       String deleteProducts,
       String foodId,
+      TextEditingController foodName,
+      TextEditingController productType,
+      TextEditingController packageType,
+      TextEditingController price,
       FoodRepository foodRepository,
       List<GetFoodItemsDto> food,
       AppStateNotifier appStateNotifier});
@@ -159,6 +191,10 @@ class __$$GetFoodItemsStateImplCopyWithImpl<$Res>
     Object? message = null,
     Object? deleteProducts = null,
     Object? foodId = null,
+    Object? foodName = null,
+    Object? productType = null,
+    Object? packageType = null,
+    Object? price = null,
     Object? foodRepository = null,
     Object? food = null,
     Object? appStateNotifier = null,
@@ -192,6 +228,22 @@ class __$$GetFoodItemsStateImplCopyWithImpl<$Res>
           ? _value.foodId
           : foodId // ignore: cast_nullable_to_non_nullable
               as String,
+      foodName: null == foodName
+          ? _value.foodName
+          : foodName // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      productType: null == productType
+          ? _value.productType
+          : productType // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      packageType: null == packageType
+          ? _value.packageType
+          : packageType // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       foodRepository: null == foodRepository
           ? _value.foodRepository
           : foodRepository // ignore: cast_nullable_to_non_nullable
@@ -219,6 +271,10 @@ class _$GetFoodItemsStateImpl implements _GetFoodItemsState {
       required this.message,
       required this.deleteProducts,
       required this.foodId,
+      required this.foodName,
+      required this.productType,
+      required this.packageType,
+      required this.price,
       required this.foodRepository,
       required final List<GetFoodItemsDto> food,
       required this.appStateNotifier})
@@ -239,6 +295,14 @@ class _$GetFoodItemsStateImpl implements _GetFoodItemsState {
   @override
   final String foodId;
   @override
+  final TextEditingController foodName;
+  @override
+  final TextEditingController productType;
+  @override
+  final TextEditingController packageType;
+  @override
+  final TextEditingController price;
+  @override
   final FoodRepository foodRepository;
   final List<GetFoodItemsDto> _food;
   @override
@@ -253,7 +317,7 @@ class _$GetFoodItemsStateImpl implements _GetFoodItemsState {
 
   @override
   String toString() {
-    return 'GetFoodItemsState(isLoading: $isLoading, isSuccess: $isSuccess, isFailure: $isFailure, error: $error, message: $message, deleteProducts: $deleteProducts, foodId: $foodId, foodRepository: $foodRepository, food: $food, appStateNotifier: $appStateNotifier)';
+    return 'GetFoodItemsState(isLoading: $isLoading, isSuccess: $isSuccess, isFailure: $isFailure, error: $error, message: $message, deleteProducts: $deleteProducts, foodId: $foodId, foodName: $foodName, productType: $productType, packageType: $packageType, price: $price, foodRepository: $foodRepository, food: $food, appStateNotifier: $appStateNotifier)';
   }
 
   @override
@@ -272,6 +336,13 @@ class _$GetFoodItemsStateImpl implements _GetFoodItemsState {
             (identical(other.deleteProducts, deleteProducts) ||
                 other.deleteProducts == deleteProducts) &&
             (identical(other.foodId, foodId) || other.foodId == foodId) &&
+            (identical(other.foodName, foodName) ||
+                other.foodName == foodName) &&
+            (identical(other.productType, productType) ||
+                other.productType == productType) &&
+            (identical(other.packageType, packageType) ||
+                other.packageType == packageType) &&
+            (identical(other.price, price) || other.price == price) &&
             (identical(other.foodRepository, foodRepository) ||
                 other.foodRepository == foodRepository) &&
             const DeepCollectionEquality().equals(other._food, _food) &&
@@ -289,6 +360,10 @@ class _$GetFoodItemsStateImpl implements _GetFoodItemsState {
       message,
       deleteProducts,
       foodId,
+      foodName,
+      productType,
+      packageType,
+      price,
       foodRepository,
       const DeepCollectionEquality().hash(_food),
       appStateNotifier);
@@ -310,6 +385,10 @@ abstract class _GetFoodItemsState implements GetFoodItemsState {
           required final String message,
           required final String deleteProducts,
           required final String foodId,
+          required final TextEditingController foodName,
+          required final TextEditingController productType,
+          required final TextEditingController packageType,
+          required final TextEditingController price,
           required final FoodRepository foodRepository,
           required final List<GetFoodItemsDto> food,
           required final AppStateNotifier appStateNotifier}) =
@@ -329,6 +408,14 @@ abstract class _GetFoodItemsState implements GetFoodItemsState {
   String get deleteProducts;
   @override
   String get foodId;
+  @override
+  TextEditingController get foodName;
+  @override
+  TextEditingController get productType;
+  @override
+  TextEditingController get packageType;
+  @override
+  TextEditingController get price;
   @override
   FoodRepository get foodRepository;
   @override

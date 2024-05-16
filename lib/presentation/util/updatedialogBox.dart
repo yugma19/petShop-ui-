@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pet_shop_ui/application/addFood/add_food_cubit.dart';
+import 'package:pet_shop_ui/application/getFood/get_food_items_cubit.dart';
 import 'package:pet_shop_ui/domain/core/configs/app_config.dart';
 import 'package:pet_shop_ui/domain/core/configs/injection.dart';
 import 'package:pet_shop_ui/domain/core/services/navigation_services/navigation_service.dart';
 import 'package:pet_shop_ui/presentation/util/my_button.dart';
 import 'package:provider/provider.dart';
 
-class AddFoodDialog extends StatelessWidget {
-  const AddFoodDialog({super.key});
+class UpdateFoodDialog extends StatelessWidget {
+  const UpdateFoodDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,22 +18,22 @@ class AddFoodDialog extends StatelessWidget {
     final appUrl = AppConfig.of(context)!.serverUrl;
     return BlocProvider(
       create: (context) {
-        return AddFoodCubit(AddFoodState.initial(
+        return GetFoodItemsCubit(GetFoodItemsState.initial(
             appStateNotifier: appStateNotifier, appUrl: appUrl));
       },
-      child: const AddFoodDialogConsumer(),
+      child: const  UpdateFoodDialogConsumer(),
     );
   }
 }
 
-class AddFoodDialogConsumer extends StatelessWidget {
-  const AddFoodDialogConsumer({
+class UpdateFoodDialogConsumer extends StatelessWidget {
+  const  UpdateFoodDialogConsumer({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AddFoodCubit, AddFoodState>(
+    return BlocConsumer<GetFoodItemsCubit,  GetFoodItemsState>(
       listener: (context, state) {
         if (state.isSuccess) {
        navigator<NavigationService>().goBack(responseObject: true);        }
@@ -47,7 +48,7 @@ class AddFoodDialogConsumer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 const Text(
-                  'ADD NEW FOOD ITEM',
+                  'UPDATE FOOD ITEM',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
                 TextField(
@@ -84,7 +85,7 @@ class AddFoodDialogConsumer extends StatelessWidget {
                     MyButton(
                         text: 'Save',
                         onPressed: () {
-                          context.read<AddFoodCubit>().addFoodItem();
+                          context.read<GetFoodItemsCubit>().updateFood();
                         }),
                     MyButton(
                         text: 'Cancel',

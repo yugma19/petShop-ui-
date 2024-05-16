@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
+import 'package:pet_shop_ui/application/getFood/get_food_items_cubit.dart';
 import 'package:pet_shop_ui/domain/core/constants/api_constants.dart';
 import 'package:pet_shop_ui/domain/core/services/network_service/rest_service.dart';
 import 'package:pet_shop_ui/domain/food_repository/food_repository.dart';
@@ -68,15 +69,15 @@ class IFoodRepository extends FoodRepository {
   }
 
   @override
- Future<Either<String, bool>> deleteFood({required String foodId}) async {
+  Future<Either<String, bool>> deleteFood({required String foodId}) async {
   try {
-    final url = '$appUrl${APIConstants.delete}?foodId=$foodId';
+    final url = '$appUrl${APIConstants.delete}/$foodId';
     
-    final response = await RESTService.performPOSTRequest(httpUrl: url);
+    final response = await RESTService.performDELETERequest(httpUrl: url);
     final resData = jsonDecode(response.body);
-    String message = resData['data'];
+    String message = resData['message'];
 
-    if (message == 'Food deleted') {
+    if (message == 'deleted') {
       return right(true);
     }
 
@@ -85,4 +86,39 @@ class IFoodRepository extends FoodRepository {
     return left('Error');
   }
 }
+
+  @override
+  Future<Either<String, bool>> updateFood({
+    required String foodId,
+    required String foodName,
+    required String productType,
+    required String packageType,
+    required String price,
+  }) async {
+    try {
+      final url = '$appUrl${APIConstants.update}/$foodId';
+      final String jsonData = jsonEncode({
+       'foodName' : foodName,
+       'productType' : productType,
+       'packageType' : packageType,
+       'price' : price,
+      });
+      final response = await RESTService.performPUTRequest(
+        httpUrl: url,
+        isAuth: true,
+        body: jsonData,
+      );
+
+      final resData = jsonDecode(response.body);
+      String message = resData['data'];
+
+      if (message == 'SUCCESS') {
+         return right(true);
+      }  
+      return left('error');
+      } catch (e) {
+      return left('error');
+      }
+  }
+
 }

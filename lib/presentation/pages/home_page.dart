@@ -71,9 +71,10 @@ class HomePageConsumer extends StatelessWidget {
                 itemBuilder: ((context, index) {
                   final foodItem = state.food[index];
                   return ToDoTile(
-                    editFunction: () {},
+                    // editFunction: () {
+                    //    context.read<GetFoodItemsCubit>().updateFood();
+                    // },
                     foodName: foodItem.foodName,
-                    // foodId: foodItem.foodId,
                     deleteFunction: () {
                       context.read<GetFoodItemsCubit>().deleteFood(foodId : foodItem.foodId);
                     },

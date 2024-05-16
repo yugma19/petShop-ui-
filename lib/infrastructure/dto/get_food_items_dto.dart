@@ -12,7 +12,7 @@ class GetFoodItemsDto with _$GetFoodItemsDto {
     @JsonKey(name: 'foodName') required String foodName,
     @JsonKey(name: 'productType') required String productType,
     @JsonKey(name: 'packageType') required String packageType,
-    @JsonKey(name: 'price') String? price,
+    @JsonKey(name: 'price') required String price,
   }) = _GetFoodItemsDto;
 
   factory GetFoodItemsDto.fromJson(Map<String, dynamic> json) =>
